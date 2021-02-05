@@ -16,7 +16,7 @@ function Field(props) {
         ready: true
       })
     }
-  }, [validate])
+  }, [validate, setValidate])
 
   const changeValueHandler = (e) => {
     const value = e.target.value

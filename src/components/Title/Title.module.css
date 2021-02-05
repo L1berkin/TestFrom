@@ -1,0 +1,22 @@
+.container {
+  width: 100%;
+  min-width: 360px;
+}
+
+.title {
+  margin: 0;
+}
+
+.subtitle {
+  margin: 10px 0;
+  font-size: .9rem;
+}
+
+.link {
+  color: #0880ae;
+  text-decoration: none;
+}
+
+.link:hover {
+  text-decoration: underline;
+}

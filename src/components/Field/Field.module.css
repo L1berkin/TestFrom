@@ -1,0 +1,38 @@
+.container {
+  width: 100%;
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  margin-bottom: 30px;
+}
+
+.title {
+  margin-bottom: 5px;
+  font-size: .9rem;
+  color: #756f86;
+}
+
+.input {
+  padding: 12px 10px;
+  border-radius: 7px;
+  font-size: .8rem;
+  border: 1px solid #e4e9ef;
+  outline: none;
+  box-shadow: 0 0 10px -9px #000;
+}
+
+.input:focus {
+  padding: 11px 9px;
+  border: 2px solid #3f99bc;
+}
+
+.input::placeholder {
+  color: #7c9cbf;
+}
+
+.error {
+  position: absolute;
+  bottom: -15px;
+  color: #ff7171;
+  font-size: .7rem;
+}

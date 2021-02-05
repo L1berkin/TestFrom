@@ -1,0 +1,70 @@
+.Select {
+  width: 100%;
+  font-size: .8rem;
+  position: relative;
+  user-select: none;
+  z-index: 110;
+}
+
+.label {
+  display: block;
+  margin-bottom: 5px;
+  height: 15px;
+  font-size: .9rem;
+  color: #756f86;
+}
+
+.input {
+  display: flex;
+  color: #7c9cbf;
+  justify-content: space-between;
+  height: 40px;
+  padding: 12px 10px;
+  margin-bottom: 30px;
+  border-radius: 7px;
+  border: 1px solid #e4e9ef;
+  box-shadow: 0 0 10px -9px #000;
+  cursor: pointer;
+  transition: .3s;
+}
+
+.dropdown {
+  display: none;
+  position: absolute;
+  top: 65px;
+  left: 0;
+  right: 0;
+  max-height: 200px;
+  overflow-y: auto;
+  background: #fff;
+  border-radius: 7px;
+  border: 1px solid #e4e9ef;
+  box-shadow: 0 0 10px -9px #000;
+}
+
+.list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.list__item {
+  padding: 12px 10px;
+  color: #756f86;
+  cursor: pointer;
+}
+
+.list__item:hover {
+  background: #ebf4f8;
+  transition: .15s background-color;
+}
+
+.Select.open .dropdown {
+  display: block;
+}
+
+.Select.open .input {
+  padding: 11px 9px;
+  color: #000;
+  border: 2px solid #3f99bc;
+}

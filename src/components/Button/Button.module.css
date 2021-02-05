@@ -1,0 +1,21 @@
+.Button {
+  padding: 10px 20px;
+  height: 40px;
+  width: 100%;
+  color: #fff;
+  background: #0880ae;
+  border-radius: 5px;
+  font-size: .8rem;
+  border: none;
+  outline: none;
+  cursor: pointer;
+}
+
+.Button:active {
+  border: 2px solid #000
+}
+
+.Button[disabled] {
+  color: #8e909c;
+  background: #dbe2ea;
+}

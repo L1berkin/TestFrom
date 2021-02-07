@@ -1,14 +1,14 @@
 import { useContext, useEffect, useState } from 'react';
-import { FormContext, initialValidate } from '../Form/Form';
+import { FormContext } from '../../hoc/FormContextHoc';
 import classes from './Button.module.css'
 
-function Button({ title }) {
+function Button({ title, context, initialValidate }) {
   const [disabled, setDisabled] = useState(true)
   const { validate, setValidate } = useContext(FormContext)
 
   useEffect(() => {
     const notValidFields = Object.values(validate).filter(el => el !== true)
-    setDisabled(notValidFields.length !== 0)
+    setDisabled(notValidFields.length > 1)
   }, [validate])
 
   const sendForm = async (e) => {
@@ -18,7 +18,9 @@ function Button({ title }) {
     
     formEls.forEach(el => {
       if (el.type) {
-        sendBody[el.name] = el.value
+        if (el.name) {
+          sendBody[el.name] = el.value
+        }
       } else {
         sendBody[el.dataset.name] = el.dataset.value
       }
@@ -31,7 +33,7 @@ function Button({ title }) {
 
     const res = await response.json()
     console.log(res)
-    setValidate(initialValidate)
+    setValidate(initialValidate || {})
   }
 
   return (

@@ -3,17 +3,7 @@ import Field from '../Field/Field'
 import Select from '../Select/Select'
 import Button from '../Button/Button'
 import classes from './Form.module.css'
-import { createContext, useState } from 'react'
-
-export const FormContext = createContext()
-
-export const initialValidate = {
-  name: false,
-  email: false,
-  tel: false,
-  checkbox: true,
-  ready: false
-}
+import FormContextHoc from '../../hoc/FormContextHoc'
 
 function Form() {
   const options = [
@@ -22,22 +12,28 @@ function Form() {
     { title: 'Китайский', value: '中文', id: 3 },
     { title: 'Испанский', value: 'esp', id: 4 }
   ]
-
-  const [validate, setValidate] = useState(initialValidate)
+  // Объект формируется = {component.name: initialValidation}
+  const initialContext = {
+    name: false,
+    email: false,
+    phone: false,
+    check: true,
+    reset: true
+  }
 
   return (
-    <FormContext.Provider
-      value={{ validate, setValidate }}
+    <FormContextHoc
+      validateFields={initialContext}
     >
       <form className={classes.Form}>
         <Field type="text" name="name" label="Имя" placeholder="Введите ваше имя" />
-        <Field type="email" name="email" label="Email" placeholder="Введите ваше email" />
+        <Field type="email" name="email" label="Email" placeholder="Введите ваш email" />
         <Field type="tel" name="phone" label="Номер телефона" placeholder="Введите номер телефона" maxLength={11} />
         <Select options={options} name="lang" label={'Язык'} />
-        <Checkbox required />
-        <Button title="Зарегистрироваться" />
+        <Checkbox name="check" checked/>
+        <Button title="Зарегистрироваться" initialValidate={initialContext} />
       </form>
-    </FormContext.Provider>
+    </FormContextHoc>
   )
 }
 

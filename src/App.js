@@ -1,5 +1,4 @@
 import FormPage from "./pages/FromPage/FormPage";
-import './App.css'
 
 function App() {
   return (

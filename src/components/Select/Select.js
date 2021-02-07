@@ -6,8 +6,8 @@ import classes from './Select.module.css'
 
 function Select({ options, label, name }) {
   const [dropdown, setDropdown] = useState(false)
-  const [value, setValue] = useState(options[0].value)
-  const [title, setTitle] = useState(options[0].title)
+  const [value, setValue] = useState(options ? options[0].value : '')
+  const [title, setTitle] = useState(options ? options[0].title : '')
   const selectStyles = [
     classes.Select,
     dropdown ? classes.open : ''
@@ -40,15 +40,17 @@ function Select({ options, label, name }) {
         <div className={classes.dropdown}>
           <ul className={classes.list}>
             {
-              options.map(el => (
-                <li
-                  className={classes.list__item}
-                  onClick={selectHandler}
-                  key={el.id}
-                  id={el.id}
-                  data-value={el.value}
-                >{el.title}</li>
-              ))
+              options
+                ? options.map(el => (
+                  <li
+                    className={classes.list__item}
+                    onClick={selectHandler}
+                    key={el.id}
+                    id={el.id}
+                    data-value={el.value}
+                  >{el.title}</li>
+                ))
+                : null
             }
           </ul>
         </div>

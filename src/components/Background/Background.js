@@ -5,6 +5,7 @@ function Background({onClick, dark}) {
     classes.Background,
     dark ? classes.dark : ''
   ]
+  
   return (
     <div 
       onClick={onClick}
